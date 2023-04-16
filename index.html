@@ -13,7 +13,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
-        <h1>Unemployment Effects on Industries and etc.</h1>
+        <h3>Unemployment Effects on Industries and etc.</h3>
         <p></p>
       </div>
     </div>
@@ -23,30 +23,25 @@
           <h5>Industry Type:</h5>
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
         </div>
-    </div>
+      </div>
+
+      <div class="col-md-10">
+        <div id="bar"> </div>
+      </div>
+      <div class="col-md-4">
+        <div id="pie"></div>
+      </div>
     <div class="row">
-      <div class="col-md-2">
-        <div class="well">
-          <h5>Years:</h5>
-          <select id="selDataset2" onchange="optionChanged(this.value)"></select>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div id="bar"></div>
-      </div>
-      <div class="col-md-5">
-        <div id="gauge"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="bubble"></div>
+      <div class="col-md-7">
+        <div id="line"></div>
       </div>
     </div>
   </div>
 
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="graphing.js"></script>
 
   
 </body>
