@@ -1,3 +1,8 @@
+const url = "http://localhost:5000/"
+
+const dataPromise = d3.json(url);
+console.log("Data Promise: ", dataPromise);
+
 document.addEventListener('DOMContentLoaded', function () {
     const chart = Highcharts.chart('bar', {
         chart: {
@@ -11,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         yAxis: {
             title: {
-                text: 'Fruit eaten'
+                text: 'Fruit Eaten'
             }
         },
         series: [{

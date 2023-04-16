@@ -1,6 +1,7 @@
 import os
 import psycopg2
-from flask import Flask, render_template
+import json
+from flask import Flask, Response
 import pandas as pd
 
 app = Flask(__name__)
@@ -18,7 +19,7 @@ def index():
     books = cur.fetchall()
     cur.close()
     conn.close()
-    return str(books)
+    return Response(json.dumps(books),  mimetype='application/json')
 
 if __name__ == '__main__':
     app.run(debug=True)
