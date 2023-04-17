@@ -1,4 +1,4 @@
-const url = "http://localhost:5000/"
+const url = "http://localhost:127.0.0.1:5000/"
 
 const dataPromise = d3.json(url);
 console.log("Data Promise: ", dataPromise);
