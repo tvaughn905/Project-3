@@ -1,11 +1,9 @@
-import os
+from flask_cors import cross_origin
 import psycopg2
 import json
-from flask import Flask, Response, jsonify
-import pandas as pd
-from sqlalchemy import create_engine
-from sqlalchemy.orm import Session
-from sqlalchemy.ext.automap import automap_base
+from flask import Flask, Response
+
+
 
 
 conn = psycopg2.connect(database="flask_df", user="flask_df_user", password="DF4LP1UcZJt3AN4cUW9hrbfp2p4FtWL3", host="dpg-cgtiqjl269vbmeuj26cg-a.oregon-postgres.render.com", port="5432")
@@ -13,36 +11,31 @@ conn = psycopg2.connect(database="flask_df", user="flask_df_user", password="DF4
 # Open a cursor to perform database operations
 cur = conn.cursor()
 
-Base = automap_base()
-
-engine = create_engine(conn)
-
-Base.prepare(engine, reflect = True)
-
-Test = Base.classes.test
-
-session = Session(engine)
-
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/industry')
+@cross_origin()
 def index():
     conn =psycopg2.connect(database="flask_df", user="flask_df_user", password="DF4LP1UcZJt3AN4cUW9hrbfp2p4FtWL3", host="dpg-cgtiqjl269vbmeuj26cg-a.oregon-postgres.render.com", port="5432")
     cur = conn.cursor()
-    
-
-    
-    #cur.execute('SELECT * FROM unemployed;')
-    #books = cur.fetchall()
+    cur.execute('SELECT * FROM unemployed;')
+    books = cur.fetchall()
     cur.close()
     conn.close()
-    cols = ['industry', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021']
-    data = session.query(Test).all()
-    results = [{col: getattr(b, col) for col in cols} for b in data]
-    return jsonify(results = results)
-    #return Response(json.dumps(books),  mimetype='application/json')
+    titles = ['industry', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021']
+    industry_dict = []
+
+    for i in range(len(books)):
+            industry = {titles[0]: books[i][0], titles[1]: books[i][1], titles[2]: books[i][2],
+            titles[3]: books[i][3], titles[4]: books[i][4], titles[5]: books[i][5],
+            titles[6]: books[i][6], titles[7]: books[i][7], titles[8]: books[i][8]}
+            
+            industry_dict.append(industry)
+
+    return Response(json.dumps(industry_dict),  mimetype='application/json')
 
 @app.route('/ethnicity')
+@cross_origin()
 def ethnicity():
     conn =psycopg2.connect(database="flask_df", user="flask_df_user", password="DF4LP1UcZJt3AN4cUW9hrbfp2p4FtWL3", host="dpg-cgtiqjl269vbmeuj26cg-a.oregon-postgres.render.com", port="5432")
     cur = conn.cursor()
@@ -50,10 +43,16 @@ def ethnicity():
     books = cur.fetchall()
     cur.close()
     conn.close()
-    cols = ['dates', 'white', 'black', 'hipsanic', 'asian']
-    results = [{col: getattr(b,col) for col in cols} for b in books]
-    return jsonify(results = results)
-    #Response(json.dumps(books),  mimetype='application/json')
+    titles = ['dates', 'white', 'black', 'hipsanic', 'asian']
+    ethnicity_dict = []
+
+    for i in range(len(books)):
+        ethnicity = {titles[0]: books[i][0], titles[1]: books[i][1], titles[2]: books[i][2],
+        titles[3]: books[i][3], titles[4]: books[i][4]}
+        
+        ethnicity_dict.append(ethnicity)
+
+    return Response(json.dumps(ethnicity_dict),  mimetype='application/json')
 
 if __name__ == '__main__':
     app.run(debug=True)
