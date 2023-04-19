@@ -22,7 +22,7 @@ def index():
     books = cur.fetchall()
     cur.close()
     conn.close()
-    titles = ['industry', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021']
+    titles = ['industry', 'fy14', 'fy15', 'fy16', 'fy17', 'fy18', 'fy19', 'fy20', 'fy21']
     industry_dict = []
 
     for i in range(len(books)):
