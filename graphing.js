@@ -101,44 +101,45 @@ function start() {
     });
 
     document.addEventListener('DOMContentLoaded', function () {
-        d3.json(url).then(function(data) {
-            for (let i = 0; i < data.length; i++)    
-                date_list.push(data[i].fy14)
-            for (let i = 0; i < data.length; i++)    
-                white_list.push(data[i].fy15)
-            for (let i = 0; i < data.length; i++)    
-                asian_list.push(data[i].fy16)
-            for (let i = 0; i < data.length; i++)
-                black_list.push(data[i].fy17)  
-            for (let i = 0; i < data.length; i++)    
-                hisp_list.push(data[i].fy18)   
+        d3.json(url2).then(function(data2) {
+            for (let i = 0; i < data2.length; i++)    
+                date_list.push(data2[i].dates)
+            for (let i = 0; i < data2.length; i++)    
+                white_list.push(data2[i].white)
+            for (let i = 0; i < data2.length; i++)    
+                asian_list.push(data2[i].asian)
+            for (let i = 0; i < data2.length; i++)
+                black_list.push(data2[i].black)  
+            for (let i = 0; i < data2.length; i++)    
+                hisp_list.push(data2[i].hipsanic)  
+            //console.log(white_list) 
             const chart = Highcharts.chart('line', {
                 chart: {
                     type: 'line'
                 },
                 title: {
-                    text: '??????????????'
+                    text: 'Unemployment by Ethnicity'
                 },
                 xAxis: {
-                    categories: ['Apples', 'Bananas', 'Oranges']
+                    categories: date_list
                 },
                 yAxis: {
                     title: {
-                        text: 'Fruit eaten'
+                        text: 'Unemployment Rate'
                     }
                 },
                 series: [{
                     name: 'Asian',
-                    data: [1, 0, 4]
+                    data: asian_list
                 }, {
                     name: 'Black',
-                    data: [5, 7, 3]
+                    data: black_list
                 }, {
                     name: 'Hispanic',
-                    data: [5, 7, 3]
+                    data: hisp_list
                 }, {
                     name: 'White',
-                    data: [5, 7, 3]
+                    data: white_list
                 }]
             })
         })    
@@ -183,28 +184,3 @@ start();
 function optionChanged(Data) {
     graphs(Data);
 };
-document.addEventListener('DOMContentLoaded', function () {
-    const chart = Highcharts.chart('line', {
-        chart: {
-            type: 'line'
-        },
-        title: {
-            text: '??????????????'
-        },
-        xAxis: {
-            categories: ['Apples', 'Bananas', 'Oranges']
-        },
-        yAxis: {
-            title: {
-                text: 'Fruit eaten'
-            }
-        },
-        series: [{
-            name: 'Jane',
-            data: [1, 0, 4]
-        }, {
-            name: 'John',
-            data: [5, 7, 3]
-        }]
-    });
-});
