@@ -27,3 +27,6 @@ https://dashboard.render.com/d/dpg-cgtiqjl269vbmeuj26cg-a
 
 API(flask):
 https://dashboard.render.com/web/srv-ch0bnhb3cv2c5b34cotg
+
+Dashboard Site: 
+https://lynchch4.github.io./
