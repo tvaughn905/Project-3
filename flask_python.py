@@ -15,7 +15,7 @@ app = Flask(__name__)
 
 @app.route('/industry')
 @cross_origin()
-def index():
+def industry():
     conn =psycopg2.connect(database="flask_df", user="flask_df_user", password="DF4LP1UcZJt3AN4cUW9hrbfp2p4FtWL3", host="dpg-cgtiqjl269vbmeuj26cg-a.oregon-postgres.render.com", port="5432")
     cur = conn.cursor()
     cur.execute('SELECT * FROM unemployed;')
@@ -53,6 +53,25 @@ def ethnicity():
         ethnicity_dict.append(ethnicity)
 
     return Response(json.dumps(ethnicity_dict),  mimetype='application/json')
+
+@app.route('/gender')
+@cross_origin()
+def gender():
+    conn =psycopg2.connect(database="flask_df", user="flask_df_user", password="DF4LP1UcZJt3AN4cUW9hrbfp2p4FtWL3", host="dpg-cgtiqjl269vbmeuj26cg-a.oregon-postgres.render.com", port="5432")
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM gender;')
+    books = cur.fetchall()
+    cur.close()
+    conn.close()
+    titles = ['date', 'women', 'men']
+    gender_dict = []
+
+    for i in range(len(books)):
+            gender = {titles[0]: books[i][0], titles[1]: books[i][1], titles[2]: books[i][2],}
+            
+            gender_dict.append(gender)
+
+    return Response(json.dumps(gender_dict),  mimetype='application/json')
 
 if __name__ == '__main__':
     app.run(debug=True)

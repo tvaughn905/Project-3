@@ -1,9 +1,13 @@
 const url = "http://localhost:5000/industry"
 const url2= "http://localhost:5000/ethnicity"
+const url3= "http://localhost:5000/gender"
 
 const data = d3.json(url).then(function(data) {console.log(data)});
 
 const data2 = d3.json(url2).then(function(data2) {console.log(data2)});
+
+const data3 = d3.json(url3).then(function(data3) {console.log(data3)});
+
 var industry_list = []
 var fy14_list = []
 var fy15_list = []
@@ -18,6 +22,9 @@ var white_list = []
 var black_list = []
 var asian_list = []
 var hisp_list = []
+var date_g_list = []
+var women_list = []
+var men_list = []
 
 function start() {
 
@@ -39,8 +46,6 @@ function start() {
         });
      
     });
-    console.log(industry_list)
-    console.log(fy14_list)
     document.addEventListener('DOMContentLoaded', function () {
         d3.json(url).then(function(data) {
             for (let i = 0; i < data.length; i++)    
@@ -144,43 +149,45 @@ function start() {
             })
         })    
     })
+    document.addEventListener('DOMContentLoaded', function () {
+        d3.json(url3).then(function(data3) {
+            for (let i = 0; i < data3.length; i++)    
+                date_g_list.push(data3[i].date)
+            for (let i = 0; i < data3.length; i++)    
+                women_list.push(data3[i].women)
+            for (let i = 0; i < data3.length; i++)    
+                men_list.push(data3[i].men)
+            console.log(date_g_list)
+
+            const chart = Highcharts.chart('pie', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Unemployment by Gender'
+                },
+                xAxis: {                    
+                    categories: date_g_list
+                },
+                yAxis: {
+
+                },
+                series: [{
+                    name: 'women',
+                    data: women_list
+                }, {
+                    name: 'Men',
+                    data: men_list
+            }]
+            })
+        })    
+    })
 };
-///function graphs(set) {
-    
-
-
-    // Pull Json data and create filter
-d3.json(url).then(function(data) {
-        //let industry = data[0];
-    for (let i = 0; i < data.length; i++)    
-        industry_list.push(data[i].industry)
-        for (let i = 0; i < data.length; i++)    
-            fy14_list.push(data[i].fy14)
-
-
-
-});
-//};
-
-//let trace1 = {
-//    x: ["giraffes", "orangutans", 'monkeys'],
-//    y: [20, 14, 23],
-//    type: "bar",
-    //orientation:,
-//text:
-//};
-
-//let layout1 = {
-//};
-
-//let data1 = [trace1];
-
-//Plotly.newPlot("bar", data1, layout1);
 
 
 start();
 
 
 function optionChanged(Data) {
-    graphs(Data);
+    start(Data);
 };
