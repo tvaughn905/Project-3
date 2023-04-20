@@ -1,6 +1,6 @@
-const url = "http://localhost:5000/industry"
-const url2= "http://localhost:5000/ethnicity"
-const url3= "http://localhost:5000/gender"
+const url = "https://unemployment-api4.onrender.com/industry"
+const url2= "https://unemployment-api4.onrender.com/ethnicity"
+const url3= "https://unemployment-api4.onrender.com/gender"
 
 const data = d3.json(url).then(function(data) {console.log(data)});
 
