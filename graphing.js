@@ -1,13 +1,15 @@
+// create urls
+
 const url = "https://unemployment-api4.onrender.com/industry"
 const url2= "https://unemployment-api4.onrender.com/ethnicity"
 const url3= "https://unemployment-api4.onrender.com/gender"
 
+// create data pulls
 const data = d3.json(url).then(function(data) {console.log(data)});
-
 const data2 = d3.json(url2).then(function(data2) {console.log(data2)});
-
 const data3 = d3.json(url3).then(function(data3) {console.log(data3)});
 
+//empty lists for graphing
 var industry_list = []
 var fy14_list = []
 var fy15_list = []
@@ -31,11 +33,9 @@ function start() {
     // pull Json data
     d3.json(url).then(function(data) {
         
-
+        //itterate trhough and create industry list
         for (let i = 0; i < data.length; i++)    
-            industry_list.push(data[i].industry)
-        for (let i = 0; i < data.length; i++)    
-            fy14_list.push(data[i].fy14)    
+            industry_list.push(data[i].industry)   
 
         // select drop down from html
             let selection = d3.select("#selDataset");
@@ -47,9 +47,11 @@ function start() {
         graph(industry_list[0])
     });
 }
-
+//function to crreate graphe
 function graph() {
     document.addEventListener('DOMContentLoaded', function () {
+       
+       //pull json data and iterate for each list
         d3.json(url).then(function(data) {
             for (let i = 0; i < data.length; i++)    
                 fy14_list.push(data[i].fy14)
@@ -68,7 +70,7 @@ function graph() {
             for (let i = 0; i < data.length; i++)    
                 fy21_list.push(data[i].fy21)        
                 
-
+            // define chart
             const chart = Highcharts.chart('bar', {
                 chart: {
                     type: 'bar'
@@ -111,6 +113,7 @@ function graph() {
     });
 
     document.addEventListener('DOMContentLoaded', function () {
+        //pull json data and iterate for each list
         d3.json(url2).then(function(data2) {
             for (let i = 0; i < data2.length; i++)    
                 date_list.push(data2[i].dates)
@@ -122,7 +125,7 @@ function graph() {
                 black_list.push(data2[i].black)  
             for (let i = 0; i < data2.length; i++)    
                 hisp_list.push(data2[i].hipsanic)  
-            //console.log(white_list) 
+            //define chart
             const chart = Highcharts.chart('line', {
                 chart: {
                     type: 'line'
@@ -155,6 +158,7 @@ function graph() {
         })    
     })
     document.addEventListener('DOMContentLoaded', function () {
+        //pull json data and iterate for each list
         d3.json(url3).then(function(data3) {
             for (let i = 0; i < data3.length; i++)    
                 date_g_list.push(data3[i].date)
@@ -163,7 +167,7 @@ function graph() {
             for (let i = 0; i < data3.length; i++)    
                 men_list.push(data3[i].men)
             console.log(date_g_list)
-
+            //define chart
             const chart = Highcharts.chart('pie', {
                 chart: {
                     type: 'column'
@@ -189,7 +193,7 @@ function graph() {
     })
 };
 
-
+// run functions
 start();
 graph()
 
