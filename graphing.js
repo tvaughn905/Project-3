@@ -44,8 +44,11 @@ function start() {
             industry_list.map(function(set) {
             return selection.append("option").text(set)
         });
-     
+        graph(industry_list[0])
     });
+}
+
+function graph() {
     document.addEventListener('DOMContentLoaded', function () {
         d3.json(url).then(function(data) {
             for (let i = 0; i < data.length; i++)    
@@ -64,7 +67,9 @@ function start() {
                 fy20_list.push(data[i].fy20)
             for (let i = 0; i < data.length; i++)    
                 fy21_list.push(data[i].fy21)        
-                const chart = Highcharts.chart('bar', {
+                
+
+            const chart = Highcharts.chart('bar', {
                 chart: {
                     type: 'bar'
                 },
@@ -186,7 +191,7 @@ function start() {
 
 
 start();
-
+graph()
 
 function optionChanged(Data) {
     start(Data);
