@@ -18,7 +18,6 @@ https://www.bls.gov/
 BLS Current Population Survey
 https://www.bls.gov/cps/data.htm
 
-##APIs
 "https://unemployment-api4.onrender.com/industry"
 "https://unemployment-api4.onrender.com/ethnicity
 "https://unemployment-api4.onrender.com/gender"
