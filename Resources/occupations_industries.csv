@@ -2,31 +2,20 @@ occupation_id,occupation_industry
 occ_1,Total unemployed(1)
 occ_2,No previous work experience
 occ_3,"Management, professional, and related occupations"
-occ_4,"Management, business, and financial operations occupations"
-occ_5,Professional and related occupations
-occ_6,Service occupations
-occ_7,Sales and office occupations
-occ_8,Sales and related occupations
-occ_9,Office and administrative support occupations
-occ_10,"Natural resources, construction, and maintenance occupations"
-occ_11,"Farming, fishing, and forestry occupations"
-occ_12,Construction and extraction occupations
-occ_13,"Installation, maintenance, and repair occupations"
-occ_14,"Production, transportation, and material moving occupations"
-occ_15,Production occupations
-occ_16,Transportation and material moving occupations
-occ_17,Agriculture and related industries
-occ_18,"Mining, quarrying, and oil and gas extraction"
-occ_19,Construction
-occ_20,Manufacturing
-occ_21,Durable goods
-occ_22,Nondurable goods
-occ_23,Wholesale and retail trade
-occ_24,Transportation and utilities
-occ_25,Information
-occ_26,Financial activities
-occ_27,Professional and business services
-occ_28,Education and health services
-occ_29,Leisure and hospitality
-occ_30,Other services
-occ_31,Public administration
+occ_4,Service occupations
+occ_5,Sales and office occupations
+occ_6,"Natural resources, construction, and maintenance occupations"
+occ_7,"Production, transportation, and material moving occupations"
+occ_8,Agriculture and related industries
+occ_9,"Mining, quarrying, and oil and gas extraction"
+occ_10,Construction
+occ_11,Manufacturing
+occ_12,Wholesale and retail trade
+occ_13,Transportation and utilities
+occ_14,Information
+occ_15,Financial activities
+occ_16,Professional and business services
+occ_17,Education and health services
+occ_18,Leisure and hospitality
+occ_19,Other services
+occ_20,Public administration
