@@ -40,8 +40,8 @@ CREATE TABLE "Industry_Unemployment_2022" (
 	"total_fifteen_wks_and_over" int NOT NULL,
 	"fifteen_to_twenty_six_wks" int NOT NULL,
 	"twenty_seven_wks_and_over" int NOT NULL,
-	"avg_duration_wks" int NOT NULL,
-	"median_duration_wks" int NOT NULL
+	"avg_duration_wks" varchar NOT NULL,
+	"median_duration_wks" varchar NOT NULL
 );
 
 CREATE TABLE "Industry_Unemployment_2021" (
@@ -53,8 +53,8 @@ CREATE TABLE "Industry_Unemployment_2021" (
 	"total_fifteen_wks_and_over" int NOT NULL,
 	"fifteen_to_twenty_six_wks" int NOT NULL,
 	"twenty_seven_wks_and_over" int NOT NULL,
-	"avg_duration_wks" int NOT NULL,
-	"median_duration_wks" int NOT NULL
+	"avg_duration_wks" varchar NOT NULL,
+	"median_duration_wks" varchar NOT NULL
 );
 
 CREATE TABLE "Industry_Unemployment_2020" (
@@ -66,8 +66,8 @@ CREATE TABLE "Industry_Unemployment_2020" (
 	"total_fifteen_wks_and_over" int NOT NULL,
 	"fifteen_to_twenty_six_wks" int NOT NULL,
 	"twenty_seven_wks_and_over" int NOT NULL,
-	"avg_duration_wks" int NOT NULL,
-	"median_duration_wks" int NOT NULL
+	"avg_duration_wks" varchar NOT NULL,
+	"median_duration_wks" varchar NOT NULL
 );
 
 CREATE TABLE "Industry_Unemployment_2019" (
@@ -79,8 +79,8 @@ CREATE TABLE "Industry_Unemployment_2019" (
 	"total_fifteen_wks_and_over" int NOT NULL,
 	"fifteen_to_twenty_six_wks" int NOT NULL,
 	"twenty_seven_wks_and_over" int NOT NULL,
-	"avg_duration_wks" int NOT NULL,
-	"median_duration_wks" int NOT NULL
+	"avg_duration_wks" varchar NOT NULL,
+	"median_duration_wks" varchar NOT NULL
 );
 
 CREATE TABLE "Industry_Unemployment_2018" (
@@ -92,8 +92,8 @@ CREATE TABLE "Industry_Unemployment_2018" (
 	"total_fifteen_wks_and_over" int NOT NULL,
 	"fifteen_to_twenty_six_wks" int NOT NULL,
 	"twenty_seven_wks_and_over" int NOT NULL,
-	"avg_duration_wks" int NOT NULL,
-	"median_duration_wks" int NOT NULL
+	"avg_duration_wks" varchar NOT NULL,
+	"median_duration_wks" varchar NOT NULL
 );
 
 CREATE TABLE "Unemployment_by_Race_or_Ethnicity" (
