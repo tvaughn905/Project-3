@@ -3,13 +3,13 @@
 Utilizing U.S. Bureau of Labor Statistics unemployment data to analyze three primary variables -- the industry, racial or ethnic background, and gender of those facing unemployment within the United States.
 
 ## Technologies
-Python, Flask, Javascript, CSS, HTML
+Python, Jupyter Notebook, Flask, Javascript, CSS, HTML
 
 ## Contributors
-Jacob Darmofal
-Tamica Grant
-Christopher Lynch
-Scott McLean
+Jacob Darmofal,
+Tamica Grant,
+Christopher Lynch,
+Scott McLean,
 Stephanie Wortman
 
 ## Data Sources
