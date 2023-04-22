@@ -1,0 +1,21 @@
+occupation_id,occupation_industry
+occ_1,Total unemployed(1)
+occ_2,No previous work experience
+occ_3,"Management, professional, and related occupations"
+occ_4,Service occupations
+occ_5,Sales and office occupations
+occ_6,"Natural resources, construction, and maintenance occupations"
+occ_7,"Production, transportation, and material moving occupations"
+occ_8,Agriculture and related industries
+occ_9,"Mining, quarrying, and oil and gas extraction"
+occ_10,Construction
+occ_11,Manufacturing
+occ_12,Wholesale and retail trade
+occ_13,Transportation and utilities
+occ_14,Information
+occ_15,Financial activities
+occ_16,Professional and business services
+occ_17,Education and health services
+occ_18,Leisure and hospitality
+occ_19,Other services
+occ_20,Public administration
