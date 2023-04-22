@@ -9,15 +9,6 @@ const data2 = d3.json(url2).then(function(data2) {console.log(data2)});
 const data3 = d3.json(url3).then(function(data3) {console.log(data3)});
 
 var industry_list = []
-var industry_list2 = []
-var fy14_list = []
-var fy15_list = []
-var fy16_list = []
-var fy17_list = []
-var fy18_list = []
-var fy19_list = []
-var fy20_list = []
-var fy21_list = []
 var date_list = []
 var white_list = []
 var black_list = []
