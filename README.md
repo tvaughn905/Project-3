@@ -26,7 +26,10 @@ Database(postgreSQL):
 https://dashboard.render.com/d/dpg-cgtiqjl269vbmeuj26cg-a
 
 API(flask):
-https://dashboard.render.com/web/srv-ch0bnhb3cv2c5b34cotg
+https://unemployment-api4.onrender.com/industry
+https://unemployment-api4.onrender.com/ethnicity
+https://unemployment-api4.onrender.com/gender
+
 
 Dashboard Site: 
 https://lynchch4.github.io./
