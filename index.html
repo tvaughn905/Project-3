@@ -12,8 +12,8 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-12 jumbotron text-center">
-        <h3>Unemployment on Industries, Ethnicity and Gender</h3>
+      <div class="col-md-12 tron text-center">
+        <h3>Unemployment on Industries, Ethnicities and Gender</h3>
         <p></p>
       </div>
     </div>
@@ -23,16 +23,21 @@
           <h5>Industry Type:</h5>
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
         </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Demographic Info</h3>
+          </div>
+          <div id="industry-data" class="panel-body"></div>
+        </div>
       </div>
-    </div>
-      <div class="col-md-9">
-        <div id="bar"> </div>
+      <div class="col-md-10">
+        <div id="bar"></div>
       </div>
-      <div class="col-md-9">
+      <div class="col-md-12">
         <div id="line"></div>
       </div>
     <div class="row">
-      <div class="col-md-9">
+      <div class="col-md-12">
         <div id="pie"></div>
       </div>
     </div>

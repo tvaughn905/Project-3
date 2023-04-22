@@ -1,16 +1,15 @@
-// create urls
-
 const url = "https://unemployment-api4.onrender.com/industry"
 const url2= "https://unemployment-api4.onrender.com/ethnicity"
 const url3= "https://unemployment-api4.onrender.com/gender"
 
-// create data pulls
 const data = d3.json(url).then(function(data) {console.log(data)});
+
 const data2 = d3.json(url2).then(function(data2) {console.log(data2)});
+
 const data3 = d3.json(url3).then(function(data3) {console.log(data3)});
 
-//empty lists for graphing
 var industry_list = []
+var industry_list2 = []
 var fy14_list = []
 var fy15_list = []
 var fy16_list = []
@@ -33,87 +32,105 @@ function start() {
     // pull Json data
     d3.json(url).then(function(data) {
         
-        //itterate trhough and create industry list
-        for (let i = 0; i < data.length; i++)    
-            industry_list.push(data[i].industry)   
 
+        for (let i = 0; i < data.length; i++)    
+            industry_list.push(data[i].industry)    
+        console.log(industry_list)
         // select drop down from html
-            let selection = d3.select("#selDataset");
+        let selection = d3.select("#selDataset");
 
         // map data and apply to drop down
-            industry_list.map(function(set) {
+        industry_list.map(function(set) {
             return selection.append("option").text(set)
+        
         });
-        graph(industry_list[0])
+
     });
+    graph("Construction")
 }
-//function to crreate graphe
-function graph() {
-    document.addEventListener('DOMContentLoaded', function () {
-       
-       //pull json data and iterate for each list
-        d3.json(url).then(function(data) {
-            for (let i = 0; i < data.length; i++)    
-                fy14_list.push(data[i].fy14)
-            for (let i = 0; i < data.length; i++)    
-                fy15_list.push(data[i].fy15)
-            for (let i = 0; i < data.length; i++)    
-                fy16_list.push(data[i].fy16)
-            for (let i = 0; i < data.length; i++)
-                fy17_list.push(data[i].fy17)  
-            for (let i = 0; i < data.length; i++)    
-                fy18_list.push(data[i].fy18)       
-            for (let i = 0; i < data.length; i++)    
-                fy19_list.push(data[i].fy19)
-            for (let i = 0; i < data.length; i++)    
-                fy20_list.push(data[i].fy20)
-            for (let i = 0; i < data.length; i++)    
-                fy21_list.push(data[i].fy21)        
-                
-            // define chart
-            const chart = Highcharts.chart('bar', {
-                chart: {
-                    type: 'bar'
-                },
-                title: {
-                    text: 'Unemployment by Industry Type'
-                },
-                xAxis: {
-                    categories: industry_list
-                },
-                yAxis: {
-                    title: {
-                        text: 'Unemployment in 1000s'
-                    }
-                },
-                series: [{
-                    name: "FY15",   
-                    data: fy15_list
-                }, {
-                    name: "FY16",   
-                    data: fy16_list
-                }, {
-                    name: "FY17",   
-                    data: fy17_list
-                }, {
-                    name: "FY18",   
-                    data: fy18_list
-                }, {
-                    name: "FY19",   
-                    data: fy19_list
-                }, {
-                    name: "FY20",   
-                    data: fy20_list
-                }, {
-                    name: "FY21",   
-                    data: fy21_list
-                }]
-            });
+
+function graph(set) {
+    
+    d3.json(url).then(function(data) {
+        function indSelect(inds) {
+            return inds.industry == set
+        };    
+        let filter = data.filter(indSelect)[0]
+        console.log(filter)
+      
+        //select panel from html
+        let body = d3.select("#industry-data");        
+        info = Object.entries(filter);
+        // Clear previous panel body
+   
+        body.html("");
+        // apply key value pair of metadata to panel body
+        info.map(function([key, value]) {
+            return body.append("p").text(`${key}:         ${value}`)
         });
     });
 
+    //document.addEventListener('DOMContentLoaded', () => {
+            d3.json(url).then(function (data) {
+                function indSelect(inds) {
+                    return inds.industry == set;
+                };
+                let filter = data.filter(indSelect)[0];
+
+                console.log(filter);
+
+                info = Object.entries(filter);
+
+                const chart = Highcharts.chart('bar', {
+                    chart: {
+                        type: 'bar'
+                    },
+                    title: {
+                        text: 'Unemployment by Industry Type'
+                    },
+                    xAxis: {
+                        categories: [filter.industry],
+                        labels: {
+                            enabled: false
+                        },
+                        title: {
+                            text: filter.industry
+                        }
+                    },
+                    yAxis: {
+                        title: {
+                            text: 'Unemployment in 1000s'
+                        }
+                    },
+                    series: [{
+                        name: "FY15",
+                        data: [filter.fy15]
+                    }, {
+                        name: "FY16",
+                        data: [filter.fy16]
+                    }, {
+                        name: "FY17",
+                        data: [filter.fy17]
+                    }, {
+                        name: "FY18",
+                        data: [filter.fy18]
+                    }, {
+                        name: "FY19",
+                        data: [filter.fy19]
+                    }, {
+                        name: "FY20",
+                        data: [filter.fy20]
+                    }, {
+                        name: "FY21",
+                        data: [filter.fy21]
+                    }]
+                });
+            });
+       // });
+}
+
+function graph2() {
     document.addEventListener('DOMContentLoaded', function () {
-        //pull json data and iterate for each list
         d3.json(url2).then(function(data2) {
             for (let i = 0; i < data2.length; i++)    
                 date_list.push(data2[i].dates)
@@ -125,7 +142,7 @@ function graph() {
                 black_list.push(data2[i].black)  
             for (let i = 0; i < data2.length; i++)    
                 hisp_list.push(data2[i].hipsanic)  
-            //define chart
+            //console.log(white_list) 
             const chart = Highcharts.chart('line', {
                 chart: {
                     type: 'line'
@@ -158,7 +175,6 @@ function graph() {
         })    
     })
     document.addEventListener('DOMContentLoaded', function () {
-        //pull json data and iterate for each list
         d3.json(url3).then(function(data3) {
             for (let i = 0; i < data3.length; i++)    
                 date_g_list.push(data3[i].date)
@@ -167,7 +183,7 @@ function graph() {
             for (let i = 0; i < data3.length; i++)    
                 men_list.push(data3[i].men)
             console.log(date_g_list)
-            //define chart
+
             const chart = Highcharts.chart('pie', {
                 chart: {
                     type: 'column'
@@ -179,10 +195,12 @@ function graph() {
                     categories: date_g_list
                 },
                 yAxis: {
-
+                    title: {
+                        text: 'Unemployment Rate'
+                    }
                 },
                 series: [{
-                    name: 'women',
+                    name: 'Women',
                     data: women_list
                 }, {
                     name: 'Men',
@@ -193,10 +211,11 @@ function graph() {
     })
 };
 
-// run functions
+
 start();
-graph()
+
+graph2();
 
 function optionChanged(Data) {
-    start(Data);
+    graph(Data);
 };

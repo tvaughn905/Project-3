@@ -5,14 +5,17 @@ from flask import Flask, Response
 
 
 
-
+#create connection to database
 conn = psycopg2.connect(database="flask_df", user="flask_df_user", password="DF4LP1UcZJt3AN4cUW9hrbfp2p4FtWL3", host="dpg-cgtiqjl269vbmeuj26cg-a.oregon-postgres.render.com", port="5432")
 
 # Open a cursor to perform database operations
 cur = conn.cursor()
 
+#create flask app
 app = Flask(__name__)
 
+
+# app for industry api
 @app.route('/industry')
 @cross_origin()
 def industry():
@@ -34,6 +37,7 @@ def industry():
 
     return Response(json.dumps(industry_dict),  mimetype='application/json')
 
+# app for ethnicity data
 @app.route('/ethnicity')
 @cross_origin()
 def ethnicity():
@@ -54,6 +58,7 @@ def ethnicity():
 
     return Response(json.dumps(ethnicity_dict),  mimetype='application/json')
 
+#app for gender data
 @app.route('/gender')
 @cross_origin()
 def gender():
