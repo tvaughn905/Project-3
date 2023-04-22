@@ -26,8 +26,8 @@ Database(postgreSQL):
 https://dashboard.render.com/d/dpg-cgtiqjl269vbmeuj26cg-a
 
 API(flask):
-https://unemployment-api4.onrender.com/industry
-https://unemployment-api4.onrender.com/ethnicity
+https://unemployment-api4.onrender.com/industry,
+https://unemployment-api4.onrender.com/ethnicity,
 https://unemployment-api4.onrender.com/gender
 
 
