@@ -1,4 +1,4 @@
-# Project-3
+# Unemployment analysis
 ## Description
 Utilizing U.S. Bureau of Labor Statistics unemployment data to analyze three primary variables -- the industry, racial or ethnic background, and gender of those facing unemployment within the United States.
 
